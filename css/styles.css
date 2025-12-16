@@ -47,6 +47,18 @@ h2 {
   padding: 2rem 1rem;
 }
 
+/* Make section headings span full width and sit above the flexed cards */
+.Docinhos > h1,
+.card-fritos > h1,
+.card-assados > h1 ,
+.card-bolos > h1 {
+  flex-basis: 100%;
+  order: -1;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
 /* From Uiverse.io by SachinKumar666 */ 
 .card {
   --card-bg: #ffffff;
@@ -252,6 +264,43 @@ h2 {
 /* Active State */
 .card:active {
   transform: translateY(-5px) scale(0.98);
+}
+
+.card-bolos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    row-gap: 2.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+  }
+
+.card-assados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    row-gap: 2.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+  }
+
+.card-fritos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    row-gap: 2.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+  }
+
+
+footer {
+  text-align: center;
+  padding: 2px;
+  color: white;
 }
 
 /* Animations */
