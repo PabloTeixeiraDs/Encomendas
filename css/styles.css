@@ -317,6 +317,14 @@ ul.product-plans li.product-plan .features li::before {
   .btn-agendar { width: 100%; padding: 0.85rem; }
 }
 
+/* Ícone do WhatsApp dentro do CTA */
+.btn-agendar i {
+  margin-left: 0.6rem;
+  font-size: 1.05em;
+  vertical-align: middle;
+  color: inherit;
+}
+
 /* Botões de preço: desabilitados somente para clique, mantendo cor/estilo */
 .price-disabled {
   pointer-events: none; /* impede clique */
