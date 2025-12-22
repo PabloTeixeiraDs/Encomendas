@@ -275,20 +275,20 @@ ul.product-plans li.product-plan .features li::before {
 .card-agendar h2 {
   margin: 0;
   font-size: 1.6rem;
-  color: #d80000;
+  color: #ffb700;
   letter-spacing: 0.2px;
 }
 
 .card-agendar p {
   margin: 0;
-  color: #333333;
+  color: #090909;
   font-size: 1rem;
 }
 
 .btn-agendar {
   display: inline-block;
-  background: linear-gradient(90deg, #d80000 0%, #c42c2a 100%);
-  color: #ffffff;
+  background: linear-gradient(90deg, #fabe28 0%, #fabe28 100%);
+  color: #000000;
   padding: 0.72rem 1.2rem;
   border-radius: 999px;
   text-decoration: none;
