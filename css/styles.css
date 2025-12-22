@@ -27,8 +27,8 @@ body {
 
   font-family: Arial, sans-serif;
   color: var(--color);
-  background: #022857;
-background: linear-gradient(0deg, rgba(2, 40, 87, 1) 0%, rgba(80, 117, 181, 1) 50%, rgba(2, 40, 87, 1) 100%);
+  background: #240d05;
+background: linear-gradient(0deg, rgba(36, 13, 5, 1) 0%, rgba(59, 38, 32, 1) 50%, rgba(36, 13, 5, 1) 100%);
 
   position: relative;
 }
@@ -36,7 +36,7 @@ background: linear-gradient(0deg, rgba(2, 40, 87, 1) 0%, rgba(80, 117, 181, 1) 5
 /* Título principal */
 h1 {
   text-align: center;
-  color: yellow;
+  color: #fabe28;
 }
 
 /* Logo / título superior */
@@ -287,7 +287,7 @@ ul.product-plans li.product-plan .features li::before {
 
 .btn-agendar {
   display: inline-block;
-  background: linear-gradient(90deg, #d80000 0%, #ff7a00 100%);
+  background: linear-gradient(90deg, #d80000 0%, #c42c2a 100%);
   color: #ffffff;
   padding: 0.72rem 1.2rem;
   border-radius: 999px;
