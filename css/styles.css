@@ -1,342 +1,308 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+/* Importa os ícones do Font Awesome (usado nos ::before das listas) */
+@import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+
+/* Importa a fonte Jura do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
+
+/* Reset básico: remove margens/paddings e padroniza box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.Logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25vh;
-
-}
-
+/* Estilo geral do body */
 body {
-    background: #020029;
-    background: linear-gradient(199deg,rgba(2, 0, 41, 1) 0%, rgb(172, 159, 159) 57%, rgba(5, 52, 115, 1) 100%);
+  --color: rgba(30, 30, 30);       /* Cor padrão do texto */
+  --bgColor: rgba(245, 245, 245);  /* Cor de fundo */
+
+  min-height: 100vh;
+  /* Centraliza o conteúdo verticalmente */
+  display: grid;
+  align-content: center;
+  gap: 2rem;
+  padding: 2rem;
+
+  font-family: Arial, sans-serif;
+  color: var(--color);
+  background-color: #FCB045;
+
+  position: relative;
 }
 
-h3 {
-    color: white;
-    font-size: 3rem;
-}
-
+/* Título principal */
 h1 {
-    color: rgb(255, 255, 255);
-    font-size: 2.0rem;
-    margin-bottom: 20px;
-    text-align: center;
+  text-align: center;
 }
 
-h2 {
-    color: #ffe1e1;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+/* Logo / título superior */
+h3 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-/* Layout for Docinhos section: cards side-by-side with good spacing */
-.Docinhos {
+/* ===== LISTA PRINCIPAL DOS CARDS ===== */
+ul.product-plans {
+  /* LARGURA TOTAL DA ÁREA DOS CARDS */
+  width: min(60rem, 90%);
+
+  margin-inline: auto;
+
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  row-gap: 2.5rem;
   justify-content: center;
-  align-items: flex-start;
-  padding: 2rem 1rem;
+  row-gap: 2rem;
+
+  list-style: none;
 }
 
-/* Make section headings span full width and sit above the flexed cards */
-.Docinhos > h1,
-.card-fritos > h1,
-.card-assados > h1 ,
-.card-bolos > h1 {
-  flex-basis: 100%;
-  order: -1;
-  width: 100%;
+/* Cores individuais de cada card */
+ul.product-plans li.product-plan:nth-child(1) { --accent-color: #d80000; }
+ul.product-plans li.product-plan:nth-child(2) { --accent-color: #d80000; }
+ul.product-plans li.product-plan:nth-child(3) { --accent-color: #d80000; }
+
+/* ===== CARD INDIVIDUAL ===== */
+ul.product-plans li.product-plan {
+  --overlap-size: 1.5rem;
+  --border-radius: 5rem;
+
+  /* 🔥 AQUI VOCÊ CONTROLA A LARGURA DO CARD */
+  width: min(30rem, 100%);
+
+  margin-inline: var(--overlap-size);
+  padding-block: 2rem;
+
+  display: grid;
+  grid-template-rows: 
+    max-content   /* título */
+    max-content   /* preço (se tiver) */
+    1fr           /* lista */
+    max-content;  /* botão */
+
+  gap: 0.5rem;
+
+  border-radius: var(--border-radius) 0 var(--border-radius) 0;
+
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  background-color: #ffffffdf; /* fundo branco do card */
+  color: #000000; /* texto preto dentro do card */
+}
+
+/* Título do card */
+ul.product-plans li.product-plan .title {
+  font-size: 2rem;
+  color: var(--accent-color);
   text-align: center;
-  margin-bottom: 1.25rem;
 }
 
-/* From Uiverse.io by SachinKumar666 */ 
-.card {
-  --card-bg: #ffffff;
-  --card-accent: #7c3aed;
-  --card-text: #1e293b;
-  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+/* (Não está sendo usado no HTML atualmente) */
+ul.product-plans li.product-plan .price {
+  margin-right: calc(var(--overlap-size) * -1);
+  justify-self: end;
 
-  width: 260px;
-  height: 320px;
-  background: var(--card-bg);
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--card-shadow);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
-}
+  padding-block: 0.25rem;
+  padding-inline: var(--overlap-size);
 
-.card__shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card__glow {
-  position: absolute;
-  inset: -10px;
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(124, 58, 237, 0.3) 0%,
-    rgba(124, 58, 237, 0) 70%
-  );
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.card__content {
-  padding: 1.25em;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75em;
-  position: relative;
-  z-index: 2;
-}
-
-.card__badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #10b981;
+  background-color: var(--accent-color);
   color: white;
-  padding: 0.25em 0.5em;
-  border-radius: 999px;
-  font-size: 0.7em;
-  font-weight: 600;
-  transform: scale(0.8);
-  opacity: 0;
-  transition: all 0.4s ease 0.1s;
-}
 
-.card__image {
-  width: 100%;
-  height: 130px;
-  background: linear-gradient(45deg, #a78bfa, #8b5cf6);
-  border-radius: 12px;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  overflow: hidden;
 }
 
-.card__image::after {
+/* Detalhe triangular do preço */
+ul.product-plans li.product-plan .price::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: radial-gradient(
-      circle at 30% 30%,
-      rgba(255, 255, 255, 0.1) 0%,
-      transparent 30%
-    ),
-    repeating-linear-gradient(
-      45deg,
-      rgba(139, 92, 246, 0.1) 0px,
-      rgba(139, 92, 246, 0.1) 2px,
-      transparent 2px,
-      transparent 4px
-    );
-  opacity: 0.5;
+
+  height: var(--overlap-size);
+  width: var(--overlap-size);
+
+  right: 0;
+  top: 100%;
+
+  background-color: inherit;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-.card__text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25em;
-}
+/* ===== BOTÃO ===== */
+ul.product-plans li.product-plan .btn {
 
-.card__title {
-  color: var(--card-text);
-  font-size: 1.1em;
-  margin: 0;
-  font-weight: 700;
-  transition: all 0.3s ease;
-}
+  /* 🔥 AQUI VOCÊ CONTROLA O TAMANHO DO BOTÃO */
+  justify-self: start; /* alinhamento dentro do card */
+  margin-left: calc(var(--overlap-size) * -1);
 
-.card__description {
-  color: var(--card-text);
-  font-size: 0.75em;
-  margin: 0;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
+  padding-block: 0.5rem;
+  padding-inline: 2.5rem;
 
-.card__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-}
+  /* Se quiser largura fixa, pode usar:
+     width: 100%;
+     ou width: 80%;
+  */
 
-.card__price {
-  color: var(--card-text);
-  font-weight: 700;
-  font-size: 1em;
-  transition: all 0.3s ease;
-}
-
-.card__button {
-  width: 28px;
-  height: 28px;
-  background: var(--card-accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
   color: white;
+
+  background-color: var(--accent-color);
+  background-image: linear-gradient(
+    transparent 50%,
+    rgba(0, 0, 0, 0.25) 0
+  );
+
+  background-size: 100% 200%;
+  transition: background-position 100ms ease;
+
+  position: relative;
   cursor: pointer;
-  transition: all 0.3s ease;
+}
+
+/* Foco por teclado */
+ul.product-plans li.product-plan .btn:focus-visible {
+  outline-offset: 5px;
+  outline: 2px solid var(--accent-color);
+  background-position: 0 100%;
+}
+
+/* Hover */
+ul.product-plans li.product-plan .btn:hover {
+  background-position: 0 100%;
+}
+
+/* Detalhe triangular do botão */
+ul.product-plans li.product-plan .btn::after {
+  content: "";
+  position: absolute;
+
+  height: var(--overlap-size);
+  width: var(--overlap-size);
+
+  left: 0;
+  bottom: 100%;
+
+  background-color: inherit;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* Clique */
+ul.product-plans li.product-plan .btn:active {
+  transform: scale(0.95);
+}
+
+ul.product-plans li.product-plan .btn:active::after {
+  transform-origin: left bottom;
   transform: scale(0.9);
 }
 
-/* Hover Effects */
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-color: rgba(124, 58, 237, 0.2);
+/* ===== LISTA DE ITENS ===== */
+ul.product-plans li.product-plan .features {
+  align-self: flex-start;
+  list-style: none;
+
+  padding-inline: 2rem;
+
+  display: grid;
 }
 
-.card:hover .card__shine {
-  opacity: 1;
-  animation: shine 3s infinite;
+/* Linha separadora */
+ul.product-plans li.product-plan .features li:not(:first-child) {
+  border-top: 1px solid rgb(200, 200, 200);
 }
 
-.card:hover .card__glow {
-  opacity: 1;
+/* Item individual */
+ul.product-plans li.product-plan .features li {
+  padding: 0.5rem;
+  
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: center;
 }
 
-.card:hover .card__badge {
-  transform: scale(1);
-  opacity: 1;
-  z-index: 1;
+/* Ícone do Font Awesome */
+ul.product-plans li.product-plan .features li::before {
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 900;
+
+  display: grid;
+  place-items: center;
 }
 
-.card:hover .card__image {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+/* Créditos */
+.credits {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
 }
 
-.card:hover .card__title {
-  color: var(--card-accent);
-  transform: translateX(2px);
+.credits a {
+  color: var(--color);
 }
 
-.card:hover .card__description {
-  opacity: 1;
-  transform: translateX(2px);
-}
-
-.card:hover .card__price {
-  color: var(--card-accent);
-  transform: translateX(2px);
-}
-
-.card:hover .card__button {
-  transform: scale(1);
-  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2);
-}
-
-.card:hover .card__button svg {
-  animation: pulse 1.5s infinite;
-}
-
-/* Active State */
-.card:active {
-  transform: translateY(-5px) scale(0.98);
-}
-
-.card-bolos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    row-gap: 2.5rem;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2rem 1rem;
-  }
-
-.card-assados {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    row-gap: 2.5rem;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2rem 1rem;
-  }
-
-.card-fritos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    row-gap: 2.5rem;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2rem 1rem;
-  }
-
-
+/* Rodapé */
 footer {
+  margin-top: 2rem;
   text-align: center;
-  padding: 2px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
-.card__image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+@media (max-width: 768px) {
 
-/* Ensure images inside card containers show fully without being cropped */
-.card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
+  /* Área total dos cards */
+  ul.product-plans {
+    width: 100%;
+    gap: 1.5rem;
+  }
 
+  /* Card ocupa quase toda a tela */
+  ul.product-plans li.product-plan {
+    width: 100%;
+    max-width: 22rem;   /* controla largura máxima no celular */
+    margin-inline: auto;
+    padding-block: 1.5rem;
+  }
 
+  /* Título do card */
+  ul.product-plans li.product-plan .title {
+    font-size: 1.6rem;
+  }
 
-/* Animations */
-@keyframes shine {
-  0% {
-    background-position: -100% 0;
+  /* Lista de itens */
+  ul.product-plans li.product-plan .features {
+    padding-inline: 1.5rem;
   }
-  100% {
-    background-position: 200% 0;
-  }
-}
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+  /* Texto dos itens */
+  ul.product-plans li.product-plan .features li {
+    font-size: 0.95rem;
+    align-items: start;
+    
   }
-  50% {
-    transform: scale(1.2);
+
+  /* Botão ocupa toda a largura */
+  ul.product-plans li.product-plan .btn {
+    /* keep same button sizing as desktop */
+    width: auto;
+    margin-left: calc(var(--overlap-size) * -1);
+    justify-self: start;
+    text-align: center;
+    border-radius: 0 0 2rem 0;
   }
-  100% {
-    transform: scale(1);
-  }
+
 }
