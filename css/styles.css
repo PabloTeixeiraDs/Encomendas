@@ -27,7 +27,8 @@ body {
 
   font-family: Arial, sans-serif;
   color: var(--color);
-  background-color: #FCB045;
+  background: #022857;
+background: linear-gradient(0deg, rgba(2, 40, 87, 1) 0%, rgba(80, 117, 181, 1) 50%, rgba(2, 40, 87, 1) 100%);
 
   position: relative;
 }
@@ -35,10 +36,12 @@ body {
 /* Título principal */
 h1 {
   text-align: center;
+  color: yellow;
 }
 
 /* Logo / título superior */
 h3 {
+  color: white;
   font-size: 3rem;
   text-align: center;
   margin-bottom: 1rem;
@@ -60,9 +63,9 @@ ul.product-plans {
 }
 
 /* Cores individuais de cada card */
-ul.product-plans li.product-plan:nth-child(1) { --accent-color: #d80000; }
-ul.product-plans li.product-plan:nth-child(2) { --accent-color: #d80000; }
-ul.product-plans li.product-plan:nth-child(3) { --accent-color: #d80000; }
+ul.product-plans li.product-plan:nth-child(1) { --accent-color: #000000; }
+ul.product-plans li.product-plan:nth-child(2) { --accent-color: #000000; }
+ul.product-plans li.product-plan:nth-child(3) { --accent-color: #000000; }
 
 /* ===== CARD INDIVIDUAL ===== */
 ul.product-plans li.product-plan {
