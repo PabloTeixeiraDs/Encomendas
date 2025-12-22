@@ -275,7 +275,7 @@ ul.product-plans li.product-plan .features li::before {
 .card-agendar h2 {
   margin: 0;
   font-size: 1.6rem;
-  color: #ffb700;
+  color: #fabe28;
   letter-spacing: 0.2px;
 }
 
@@ -293,14 +293,14 @@ ul.product-plans li.product-plan .features li::before {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
-  box-shadow: 0 10px 22px rgba(216, 0, 0, 0.18);
+  box-shadow: 0 10px 22px rgba(255, 225, 0, 0.772);
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
 .btn-agendar:hover,
 .btn-agendar:focus {
   transform: translateY(-3px);
-  box-shadow: 0 16px 34px rgba(216, 0, 0, 0.22);
+  box-shadow: 0 16px 34px rgba(255, 225, 0, 0.772);
   outline: none;
 }
 
