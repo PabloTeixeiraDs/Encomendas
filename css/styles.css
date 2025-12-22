@@ -317,6 +317,19 @@ ul.product-plans li.product-plan .features li::before {
   .btn-agendar { width: 100%; padding: 0.85rem; }
 }
 
+/* Botões de preço: desabilitados somente para clique, mantendo cor/estilo */
+.price-disabled {
+  pointer-events: none; /* impede clique */
+  cursor: not-allowed;
+}
+
+/* Garantir que o atributo disabled não mude a aparência visual */
+button:disabled,
+button[disabled] {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
 /* Rodapé */
 footer {
   margin-top: 2rem;
