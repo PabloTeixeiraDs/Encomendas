@@ -258,6 +258,65 @@ ul.product-plans li.product-plan .features li::before {
   color: var(--color);
 }
 
+/* ===== SEÇÃO DE AGENDAMENTO ===== */
+.card-agendar {
+  max-width: 860px;
+  margin: 2.25rem auto;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffffcc 100%);
+  padding: 1.75rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(3, 12, 40, 0.12);
+  text-align: center;
+  display: grid;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.card-agendar h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #d80000;
+  letter-spacing: 0.2px;
+}
+
+.card-agendar p {
+  margin: 0;
+  color: #333333;
+  font-size: 1rem;
+}
+
+.btn-agendar {
+  display: inline-block;
+  background: linear-gradient(90deg, #d80000 0%, #ff7a00 100%);
+  color: #ffffff;
+  padding: 0.72rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(216, 0, 0, 0.18);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.btn-agendar:hover,
+.btn-agendar:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(216, 0, 0, 0.22);
+  outline: none;
+}
+
+.btn-agendar:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 520px) {
+  .card-agendar {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .card-agendar h2 { font-size: 1.25rem; }
+  .btn-agendar { width: 100%; padding: 0.85rem; }
+}
+
 /* Rodapé */
 footer {
   margin-top: 2rem;
