@@ -340,7 +340,7 @@ footer {
     text-overflow: unset;   /* remove "..." */
     align-items: flex-start;
     line-height: 1.25;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     grid-template-columns: 1rem 1fr;
   }
 
