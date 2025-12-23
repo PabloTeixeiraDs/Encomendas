@@ -318,7 +318,8 @@ footer {
 
   ul.product-plans li.product-plan {
     width: 100%;
-    max-width: 18rem;
+    /* Aumenta a largura máxima para evitar que o texto quebre */
+    max-width: 25rem;
     margin-inline: auto;
     padding-block: 1.5rem;
   }
@@ -330,18 +331,20 @@ footer {
 
   /* Mais respiro lateral */
   ul.product-plans li.product-plan .features {
-    padding-inline: 3rem;
+    /* reduz o padding lateral para ganhar espaço útil para o texto */
+    padding-inline: 2rem;
   }
 
   /* 🔥 CORREÇÃO DO TEXTO CORTADO */
   ul.product-plans li.product-plan .features li {
-    white-space: normal;     /* permite quebra de linha */
-    overflow: visible;      /* mostra tudo */
-    text-overflow: unset;   /* remove "..." */
-    align-items: flex-start;
-    line-height: 1.25;
+    /* Mantém o texto em uma única linha e mostra reticências se necessário */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+    line-height: 1.1;
     font-size: 0.95rem;
-    grid-template-columns: 1rem 1fr;
+    grid-template-columns: 1rem minmax(0, 1fr);
   }
 
   /* Botão permanece alinhado */
