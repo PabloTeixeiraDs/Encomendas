@@ -371,24 +371,24 @@ footer {
   /* Card ocupa quase toda a tela */
   ul.product-plans li.product-plan {
     width: 100%;
-    max-width: 22rem;   /* controla largura máxima no celular */
+    max-width: 18rem;   /* controla largura máxima no celular */
     margin-inline: auto;
     padding-block: 1.5rem;
   }
 
   /* Título do card */
   ul.product-plans li.product-plan .title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   /* Lista de itens */
   ul.product-plans li.product-plan .features {
-    padding-inline: 1.5rem;
+    padding-inline: 3rem;
   }
 
   /* Texto dos itens */
   ul.product-plans li.product-plan .features li {
-    font-size: 0.95rem;
+    font-size: 0.70rem;
     align-items: start;
     
   }
