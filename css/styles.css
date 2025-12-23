@@ -364,3 +364,39 @@ footer {
     padding: 0.85rem;
   }
 }
+
+/* Media específica para celulares pequenos (ex: iPhone 8 - 375px) */
+@media (max-width: 375px) {
+
+  /* Coloca os cards em uma linha única com scroll horizontal
+     para que o texto dentro dos cards nunca quebre linha. */
+  ul.product-plans {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Cada card fica com largura mínima maior e não encolhe */
+  ul.product-plans li.product-plan {
+    flex: 0 0 auto;
+    min-width: 20rem; /* aumenta largura do card quando necessário */
+    max-width: none;
+    margin-inline: 0.6rem;
+    padding-block: 1rem;
+  }
+
+  /* Garante que os itens da lista dentro do card permaneçam em uma linha
+     e não sejam truncados com reticências (o usuário poderá rolar horizontalmente). */
+  ul.product-plans li.product-plan .features li {
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+    align-items: center;
+    grid-template-columns: 1rem minmax(0, auto);
+  }
+
+}
