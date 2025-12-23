@@ -19,11 +19,9 @@ body {
   --bgColor: rgba(245, 245, 245);  /* Cor de fundo */
 
   min-height: 100vh;
-  /* Centraliza o conteúdo verticalmente */
-  display: grid;
-  align-content: center;
-  gap: 2rem;
-  padding: 2rem;
+  /* Fluxo normal para permitir rolagem completa em telas pequenas */
+  display: block;
+  padding: 1.25rem;
 
   font-family: Arial, sans-serif;
   color: var(--color);
@@ -31,6 +29,21 @@ body {
 background: linear-gradient(0deg, rgba(36, 13, 5, 1) 0%, rgba(59, 38, 32, 1) 50%, rgba(36, 13, 5, 1) 100%);
 
   position: relative;
+}
+
+/* Ajustes para header/logo */
+.Logo{
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* Mobile adjustments: reduce big headings and card spacing so content fits */
+@media (max-width: 520px) {
+  h3 { font-size: 2.2rem; }
+  h1 { font-size: 1.6rem; margin-top: 0.5rem; }
+  body { padding: 0.75rem; }
+  ul.product-plans { gap: 1rem; }
+  ul.product-plans li.product-plan { padding-block: 1rem; margin-inline: 0.5rem; }
 }
 
 /* Título principal */
