@@ -392,9 +392,12 @@ footer {
   /* Garante que os itens da lista dentro do card permaneçam em uma linha
      e não sejam truncados com reticências (o usuário poderá rolar horizontalmente). */
   ul.product-plans li.product-plan .features li {
-    white-space: nowrap;
-    overflow: visible;
-    text-overflow: unset;
+    /* Força remoção de reticências e permite que o texto seja exibido
+       sem ser truncado neste breakpoint (iPhone 8). */
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: none !important;
     align-items: center;
     grid-template-columns: 1rem minmax(0, auto);
   }
